@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Services</title>
+    <style>
+     table, th{
+       border: 1px solid black;
+     }
+    </style>
+</head>
+
+<body>
+
+<!-- Service Export Grid -->
+<div id="serviceInfo">
+    <div th:if="${not #lists.isEmpty(serviceInfo)}">
+        <table class="services_table_1 paginate-table">
+            <thead>
+            <tr>
+                <th>File Code</th>
+                <th>Guest/ Group Name</th>
+                <th>Service Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="service : ${serviceInfo}">
+                <td th:text="${service?.fileCode}"></td>
+                <td th:text="${service?.guestName}"></td>
+                <td th:text="${service?.serviceDate}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="services_table_2 paginate-table">
+            <thead>
+            <tr>
+                <th>Service</th>
+                <th>Guide Name With Phone Number</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="service : ${serviceInfo}">
+                <td th:text="${service?.serviceDetail}"></td>
+                <td th:text="${service?.guideNameWithPhoneNumber}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
